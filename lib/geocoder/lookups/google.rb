@@ -32,6 +32,9 @@ module Geocoder::Lookup
         :language => Geocoder::Configuration.language,
         :key => Geocoder::Configuration.api_key
       }
+      if Geocoder::Configuration.region
+        params[:region] = Geocoder::Configuration.region
+      end
       "#{protocol}://maps.googleapis.com/maps/api/geocode/json?" + hash_to_query(params)
     end
   end
